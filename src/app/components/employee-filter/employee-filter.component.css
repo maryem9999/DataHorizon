@@ -1,0 +1,10 @@
+.filter-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  mat-form-field {
+    margin-bottom: 16px;
+  }
+  

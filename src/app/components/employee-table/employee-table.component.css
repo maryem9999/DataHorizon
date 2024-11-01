@@ -1,0 +1,29 @@
+mat-card {
+  width: 100%;
+  overflow: auto;
+}
+
+mat-table {
+  min-width: 900px;
+  font-size: 13px; /* Réduit la taille de police pour le contenu du tableau */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.table-card {
+  width: 100%;
+  height: auto; /* Let it grow based on content */
+  max-width: 900px; /* Limite la largeur pour les grands écrans */
+  min-width: 300px; /* Assure une bonne visibilité sur les petits écrans */
+}
+
+@media (max-width: 600px) {
+  .table-card {
+    padding: 10px; /* Réduit la taille des marges pour les petits écrans */
+  }
+}
