@@ -1,10 +1,18 @@
-<form [formGroup]="filterForm" class="filter-container">
+<form [formGroup]="filterForm" class="filter-container" style="display: flex; flex-direction: row; flex-wrap: wrap; gap: 12px; margin: 10px 0 45px 0; align-items: center;">
+  <!-- Formulaire lié au groupe de contrôle filterForm et styled pour le layout flexible -->
   <mat-form-field 
     *ngFor="let field of filterFields" 
     appearance="outline" 
     class="filter-input"
+    style="width: 130px; padding: 0; margin: 2px; height: 20px;"
   >
-    <mat-label>{{ field.label }}</mat-label>
-    <input matInput [formControlName]="field.id" />
+    <mat-label style="font-size: 9px; font-weight: normal; color: #333; transform: translateY(-12px) scale(0.75);">{{ field.label }}</mat-label>
+    <!-- Étiquette pour chaque champ de filtre, stylée pour être compacte -->
+    <input 
+      matInput 
+      [formControlName]="field.id" 
+      style="font-size: 9px; padding: 1px 3px; color: #333; font-weight: normal; height: 18px; line-height: 1.2;" 
+    />
+    <!-- Champ de saisie lié au contrôle de filtre correspondant -->
   </mat-form-field>
 </form>

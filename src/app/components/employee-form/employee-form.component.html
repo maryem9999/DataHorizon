@@ -1,47 +1,52 @@
-<h2>Add New Employee</h2>
-<form [formGroup]="employeeForm">
-  <mat-form-field appearance="outline">
-    <mat-label>First Name</mat-label>
-    <input matInput formControlName="firstName" />
-  </mat-form-field>
+<div class="dialog-container">
+  <h2 class="form-title">Add New Employee</h2> <!-- Titre du dialogue pour ajouter un nouvel employé -->
+  <div class="form-container">
+    <form [formGroup]="employeeForm"> <!-- Formulaire lié au groupe de contrôle employeeForm -->
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label> <!-- Label pour le champ Prénom -->
+        <input matInput formControlName="firstName" /> <!-- Champ de saisie pour le Prénom -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Last Name</mat-label>
-    <input matInput formControlName="lastName" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label> <!-- Label pour le champ Nom -->
+        <input matInput formControlName="lastName" /> <!-- Champ de saisie pour le Nom -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Age</mat-label>
-    <input matInput type="number" formControlName="age" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label> <!-- Label pour le champ Âge -->
+        <input matInput type="number" formControlName="age" /> <!-- Champ de saisie pour l'Âge -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Date of Birth</mat-label>
-    <input matInput type="date" formControlName="dob" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Date of Birth</mat-label> <!-- Label pour le champ Date de Naissance -->
+        <input matInput type="date" formControlName="dob" /> <!-- Champ de saisie pour la Date de Naissance -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Contact Number</mat-label>
-    <input matInput formControlName="contactNumber" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Contact Number</mat-label> <!-- Label pour le champ Numéro de Contact -->
+        <input matInput formControlName="contactNumber" /> <!-- Champ de saisie pour le Numéro de Contact -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" formControlName="email" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label> <!-- Label pour le champ Email -->
+        <input matInput type="email" formControlName="email" /> <!-- Champ de saisie pour l'Email -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Address</mat-label>
-    <input matInput formControlName="address" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label> <!-- Label pour le champ Adresse -->
+        <input matInput formControlName="address" /> <!-- Champ de saisie pour l'Adresse -->
+      </mat-form-field>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Salary</mat-label>
-    <input matInput type="number" formControlName="salary" />
-  </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Salary</mat-label> <!-- Label pour le champ Salaire -->
+        <input matInput type="number" formControlName="salary" /> <!-- Champ de saisie pour le Salaire -->
+      </mat-form-field>
 
-  <div mat-dialog-actions>
-    <button mat-button (click)="onCancel()">Cancel</button>
-    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+      <div mat-dialog-actions>
+        <button mat-raised-button color="primary" class="save-button" (click)="onSave()">Save</button> <!-- Bouton pour sauvegarder les données -->
+        
+        <button mat-button class="cancel-button" (click)="onCancel()">Cancel</button> <!-- Bouton pour annuler -->
+      </div>
+    </form>
   </div>
-</form>
+</div>

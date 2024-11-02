@@ -8,7 +8,7 @@ import { Employee } from '../../Data/employees';
   providedIn: 'root'
 })
 export class EmployeeService {
-  private apiUrl = 'https://retoolapi.dev/HYd96h/data'; // Replace with your actual API URL
+  private apiUrl = 'https://retoolapi.dev/HYd96h/data'; //API URL
 
   constructor(private http: HttpClient) {}
 

@@ -3,45 +3,43 @@
     <mat-card-header>
       <mat-card-title>
         <span class="title">Employee Directory</span>
-        <button mat-fab extended (click)="openAddEmployeeDialog()" style="margin-left: 20px;">
-          <mat-icon>add</mat-icon>
-          Add Employee
+        <button mat-button class="add-employee-btn" (click)="openAddEmployeeDialog()">
+          Add Employee <!-- Bouton pour ajouter un nouvel employé -->
         </button>
       </mat-card-title>
     </mat-card-header>
 
     <mat-card-content>
-      <app-employee-filter (filterChange)="onFilterChange($event)"></app-employee-filter>
+      <app-employee-filter (filterChange)="onFilterChange($event)"></app-employee-filter> <!-- Composant pour filtrer les employés -->
       
       <div class="table-container">
-        <mat-table [dataSource]="dataSource" matSort>
+        <mat-table [dataSource]="dataSource" matSort> <!-- Table des employés -->
           <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>
-              {{ column.label }}
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="sticky-header">
+              {{ column.label }} <!-- En-tête de chaque colonne -->
             </mat-header-cell>
-            <mat-cell *matCellDef="let row">
+            <mat-cell *matCellDef="let row" [style.white-space]="'normal'">
               <ng-container *ngIf="column.id !== 'delete'; else deleteCell">
-                {{ row[column.id] }}
+                {{ row[column.id] }} <!-- Affiche les données de l'employé -->
               </ng-container>
               <ng-template #deleteCell>
-                <button mat-icon-button (click)="deleteEmployee(row.id)">
-                  <mat-icon>delete</mat-icon>
+                <button mat-icon-button class="delete-icon" (click)="deleteEmployee(row.id)">
+                  <mat-icon>delete</mat-icon> <!-- Icône de suppression -->
                 </button>
               </ng-template>
             </mat-cell>
           </ng-container>
-          <mat-header-row *matHeaderRowDef="columnsIds"></mat-header-row>
-          <mat-row *matRowDef="let row; columns: columnsIds"></mat-row>
+          <mat-header-row *matHeaderRowDef="columnsIds"></mat-header-row> <!-- Définit les lignes d'en-tête -->
+          <mat-row *matRowDef="let row; columns: columnsIds"></mat-row> <!-- Définit les lignes de données -->
         </mat-table>
 
         <mat-paginator
-        [length]="dataSource.data.length"
-        [pageSize]="pageSize"
-        [pageIndex]="pageIndex"  
-        [pageSizeOptions]="pageSizeOptions"
-        (page)="handlePageEvent($event)">
-      </mat-paginator>
-      
+          [length]="dataSource.data.length"
+          [pageSize]="pageSize"
+          [pageIndex]="pageIndex"  
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="handlePageEvent($event)"> <!-- Paginator pour naviguer entre les pages -->
+        </mat-paginator>
       </div>
     </mat-card-content>
   </mat-card>

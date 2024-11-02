@@ -1,38 +1,37 @@
-/* Container pour afficher les champs en ligne avec espace entre eux */
 .filter-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 12px; /* Espace entre chaque champ */
+  gap: 12px;
   margin: 15px 0;
   align-items: center;
 }
 
-/* Largeur réduite pour chaque champ de saisie */
+
 .filter-input {
-  width: 130px; /* Largeur réduite des champs */
+  width: 130px; 
 }
 
-/* Réduit la taille de la police et supprime le gras pour le label */
+
 .mat-form-field-label-wrapper .mat-form-field-label {
-  font-size: 10px !important; /* Taille de police réduite pour le label */
-  font-weight: normal !important; /* Suppression du gras */
-  color: #333; /* Couleur du label */
-  transform: translateY(-12px) scale(0.75); /* Ajuste la position du label */
+  font-size: 10px !important; 
+  font-weight: normal !important; 
+  color: #333; 
+  transform: translateY(-12px) scale(0.75); 
 }
 
-/* Personnalisation de l'input */
+
 input.mat-input-element {
-  font-size: 10px !important; /* Taille réduite du texte dans les champs */
-  padding: 2px 4px; /* Réduction du padding interne pour diminuer la hauteur */
+  font-size: 10px !important; 
+  padding: 2px 4px; 
   color: #333;
-  font-weight: normal !important; /* Suppression du gras */
-  height: 20px !important; /* Ajustement de la hauteur de l'input */
+  font-weight: normal !important;
+  height: 20px !important; 
 }
 
-/* Réduit l'espace autour du champ pour plus de compacité */
+
 mat-form-field {
   padding: 0;
-  margin: 2px; /* Réduit la marge pour plus de compacité */
-  height: auto; /* Permet d'ajuster automatiquement la hauteur */
+  margin: 2px; 
+  height: auto; 
 }
