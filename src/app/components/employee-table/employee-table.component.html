@@ -1,40 +1,48 @@
-<app-employee-filter (filterChange)="onFilterChange($event)"></app-employee-filter>
+<div class="outer-container">
+  <mat-card class="custom-card">
+    <mat-card-header>
+      <mat-card-title>
+        <span class="title">Employee Directory</span>
+        <button mat-fab extended (click)="openAddEmployeeDialog()" style="margin-left: 20px;">
+          <mat-icon>add</mat-icon>
+          Add Employee
+        </button>
+      </mat-card-title>
+    </mat-card-header>
 
-<div class="container">
-  <mat-card class="table-card">
-    <mat-table [dataSource]="dataSource" matSort>
-      <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
-        <mat-header-cell
-          *matHeaderCellDef
-          mat-sort-header
-          [style.minWidth.px]="column.minWidth"
-          [style.color]="'#000000'"
-          [style.backgroundColor]="'#9ab4f3'"
-          [style.fontSize.px]="10">
-          {{ column.label }}
-        </mat-header-cell>
-        <mat-cell *matCellDef="let row" [style.textAlign]="column.align" [style.fontSize.px]="9">
-          <ng-container *ngIf="column.id !== 'delete'; else deleteCell">
-            {{ column.format ? column.format(row[column.id]) : row[column.id] }}
+    <mat-card-content>
+      <app-employee-filter (filterChange)="onFilterChange($event)"></app-employee-filter>
+      
+      <div class="table-container">
+        <mat-table [dataSource]="dataSource" matSort>
+          <ng-container *ngFor="let column of columns" [matColumnDef]="column.id">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              {{ column.label }}
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <ng-container *ngIf="column.id !== 'delete'; else deleteCell">
+                {{ row[column.id] }}
+              </ng-container>
+              <ng-template #deleteCell>
+                <button mat-icon-button (click)="deleteEmployee(row.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </ng-template>
+            </mat-cell>
           </ng-container>
-          <ng-template #deleteCell>
-            <button mat-icon-button (click)="deleteEmployee(row.id)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </ng-template>
-        </mat-cell>
-      </ng-container>
+          <mat-header-row *matHeaderRowDef="columnsIds"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: columnsIds"></mat-row>
+        </mat-table>
 
-      <mat-header-row *matHeaderRowDef="columnsIds"></mat-header-row>
-      <mat-row *matRowDef="let row; columns: columnsIds; trackBy: trackByFn"></mat-row>
-    </mat-table>
-    
-    <!-- Separate paginator below the table -->
-    <mat-paginator
-      [length]="dataSource.data.length"
-      [pageSize]="pageSize"
-      [pageSizeOptions]="pageSizeOptions"
-      (page)="handlePageEvent($event)">
-    </mat-paginator>
+        <mat-paginator
+        [length]="dataSource.data.length"
+        [pageSize]="pageSize"
+        [pageIndex]="pageIndex"  
+        [pageSizeOptions]="pageSizeOptions"
+        (page)="handlePageEvent($event)">
+      </mat-paginator>
+      
+      </div>
+    </mat-card-content>
   </mat-card>
 </div>

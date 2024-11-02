@@ -1,5 +1,10 @@
-<form [formGroup]="filterForm">
-  <mat-form-field *ngFor="let control of filterForm.controls | keyvalue">
-    <input matInput [formControlName]="control.key" [placeholder]="control.key | titlecase" />
+<form [formGroup]="filterForm" class="filter-container">
+  <mat-form-field 
+    *ngFor="let field of filterFields" 
+    appearance="outline" 
+    class="filter-input"
+  >
+    <mat-label>{{ field.label }}</mat-label>
+    <input matInput [formControlName]="field.id" />
   </mat-form-field>
 </form>
